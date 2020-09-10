@@ -16,8 +16,7 @@ class DeveloperController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $email = 'femi.adesina@gmail.com';
-        AskForDeveloperEvent::dispatch($email);
-        return response('Successfuly notified developer you checked on him.');
+        AskForDeveloperEvent::dispatch(config('mail.client.address'));
+        return response('Successfully notified developer you checked on him.');
     }
 }

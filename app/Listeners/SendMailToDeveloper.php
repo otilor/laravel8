@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events;
+use App\Events\AskForDeveloperEvent;
 use App\Mail\AskForDeveloperMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -21,9 +22,10 @@ class SendMailToDeveloper implements ShouldQueue
     /**
      * Handle the event.
      *
+     * @param AskForDeveloperEvent $event
      * @return void
      */
-    public function handle(Events\AskForDeveloperEvent $event)
+    public function handle(AskForDeveloperEvent $event)
     {
         \Mail::to(config('mail.developer.address'))->send(new AskForDeveloperMail($event->email));
     }

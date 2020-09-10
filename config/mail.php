@@ -91,6 +91,11 @@ return [
     'developer' => [
       'address' => 'gabrielfemi799@laravel8.com',
     ],
+
+    'client' => [
+        'address' => \Faker\Factory::create()->email,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

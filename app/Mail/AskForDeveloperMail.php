@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Str;
 
 class AskForDeveloperMail extends Mailable
 {
@@ -30,6 +31,8 @@ class AskForDeveloperMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.ask-for-developer')->with(['email', $this->email]);
+        return $this->markdown('emails.ask-for-developer')
+            ->subject(Str::lower($this->email) . " asked of you 😄")
+            ->with(['email', $this->email]);
     }
 }
