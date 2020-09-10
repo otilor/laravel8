@@ -2,7 +2,6 @@
 
 namespace App\Listeners;
 
-use App\Events;
 use App\Events\AskForDeveloperEvent;
 use App\Mail\AskForDeveloperMail;
 use Illuminate\Contracts\Queue\ShouldQueue;
