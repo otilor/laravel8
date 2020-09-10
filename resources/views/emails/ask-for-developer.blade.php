@@ -1,7 +1,7 @@
 @component('mail::message')
 # Introduction
 
-Hey Gabriel, Someone asked of you!
+Hey Gabriel, {{ $email  }} asked for you
 
 Thanks,<br>
 {{ config('app.name') }}

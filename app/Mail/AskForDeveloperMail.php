@@ -11,14 +11,16 @@ class AskForDeveloperMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $email;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email)
     {
-        //
+        $this->email = $email;
     }
 
     /**
@@ -28,6 +30,6 @@ class AskForDeveloperMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.ask-for-developer');
+        return $this->markdown('emails.ask-for-developer')->with(['email', $this->email]);
     }
 }

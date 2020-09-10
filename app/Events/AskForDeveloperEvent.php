@@ -14,17 +14,16 @@ class AskForDeveloperEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $customer;
+    public $email;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($customer)
+    public function __construct($email)
     {
         //
-        $this->customer = $customer;
+        $this->email = $email;
     }
-
 }

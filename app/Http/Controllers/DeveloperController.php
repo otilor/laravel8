@@ -16,7 +16,8 @@ class DeveloperController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $customer = new User(['name' => 'Gabriel', 'email' => 'gabrielfemi799@gmail.com', 'password' => bcrypt('password')]);
-        event(new AskForDeveloperEvent($customer));
+        $email = 'femi.adesina@gmail.com';
+        AskForDeveloperEvent::dispatch($email);
+        return response('Successfuly notified developer you checked on him.');
     }
 }

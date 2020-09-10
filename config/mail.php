@@ -88,6 +88,9 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'developer' => [
+      'address' => 'gabrielfemi799@laravel8.com',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
