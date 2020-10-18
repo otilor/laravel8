@@ -15,6 +15,8 @@
                 you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
                 ecosystem to be a breath of fresh air. We hope you love it.
             </div>
+
+            <welcome-greeting class="block h-12 w-auto"/>
         </div>
 
         <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
@@ -95,10 +97,12 @@
 
 <script>
     import JetApplicationLogo from './../Jetstream/ApplicationLogo'
+    import WelcomeGreeting from "./WelcomeGreeting";
 
     export default {
         components: {
             JetApplicationLogo,
+            WelcomeGreeting,
         },
     }
 </script>

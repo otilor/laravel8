@@ -23,8 +23,4 @@ Route::group(['prefix' => 'v1'], static function () {
     Route::get('/', function () {
         return response()->json(['message' => 'Welcome to Paymint']);
     });
-
-    Route::post('/', [PaymentController::class, 'debit']);
 });
-
-
