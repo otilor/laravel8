@@ -19,17 +19,15 @@ class Payment
         //
     }
 
-    public function debit($user_id, $amount)
+    public function debit($user_id, $amount) : bool
     {
-        // Fetch the balance.
         $account = Account::findUser($user_id);
-        // Subtract from the amount.
         $newBalance = $account->balance - $amount;
 
-        // Update database
         $account->update([
             'balance' => $newBalance,
         ]);
 
+        return true;
     }
 }
