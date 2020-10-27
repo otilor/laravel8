@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\ProcessPayment;
+use App\Jobs\SendDummyMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
@@ -23,3 +25,13 @@ Route::get('ask-for-developer', Controllers\DeveloperController::class);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
+
+Route::get('dummy-mail', function () {
+    SendDummyMail::dispatch();
+    return response('Your mail has been sent');
+});
+
+Route::get('process-payment', function () {
+   ProcessPayment::dispatch()->onQueue('payments');
+   return response('Your payment is being processed!');
+});
