@@ -45,3 +45,7 @@ Route::get('test-mail', function () {
 Route::get('test-static-fallback', function () {
     return TestAutoloadController::lever();
 });
+
+Route::get('dummy', function () {
+    return "You said 'Hi'";
+});
