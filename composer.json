@@ -12,9 +12,10 @@
         "barryvdh/laravel-ide-helper": "^2.8",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
+        "gabrielfemi/contact": "^1.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.2.11",
-        "laravel/framework": "^8.0",
+        "laravel/framework": "^8.6.0",
         "laravel/jetstream": "^1.1",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0"
@@ -46,7 +47,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "GabrielFemi\\SleekPost\\": "packages/sleek-post/src"
         }
     },
     "minimum-stability": "dev",
