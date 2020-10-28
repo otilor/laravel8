@@ -9,3 +9,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Install PHP
+      uses: shivanmathur/setup-php@v2
+      with:
+            php-version: '7.4'
+            extensions: ctype, bcmath, fileinfo, json, mbstring, openssl, pdo, tokenizer, xml
+    
+    - name: Install Composer dependencies
+      run: composer install --no-interaction --prefer-dist
