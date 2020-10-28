@@ -18,6 +18,12 @@ jobs:
     
     - name: Install Composer dependencies
       run: composer install --no-interaction --prefer-dist
-    
+      
+    - name: Copy environment variables
+      run: cp .env.example .env
+
+    - name: Set application key
+      run: php artisan key:generate
+
     - name: Run test suite
       run: php artisan test
