@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\TestAutoloadController;
 use App\Jobs\ProcessPayment;
 use App\Jobs\SendDummyMail;
+use Facades\EmailFacade;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use PHPUnit\Util\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +37,11 @@ Route::get('dummy-mail', function () {
 Route::get('process-payment', function () {
    ProcessPayment::dispatch()->onQueue('payments');
    return response('Your payment is being processed!');
+});
+Route::get('test', TestAutoloadController::class);
+Route::get('test-mail', function () {
+    EmailFacade::to('gabrielfemi799@gmail.com');
+});
+Route::get('test-static-fallback', function () {
+    return TestAutoloadController::lever();
 });
