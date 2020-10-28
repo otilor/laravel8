@@ -18,6 +18,3 @@ jobs:
     
     - name: Install Composer dependencies
       run: composer install --no-interaction --prefer-dist
-
-    - name: Run test suite
-      run: php artisan test
