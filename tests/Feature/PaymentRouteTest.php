@@ -14,10 +14,7 @@ class PaymentRouteTest extends TestCase
      */
     public function testExample(): void
     {
-        $response = $this->get(App::BASE_ENDPOINT);
-
-        $response->assertStatus(200);
-        $response->assertExactJson(['message' => 'Welcome to Paymint']);
+        //
     }
 
 
