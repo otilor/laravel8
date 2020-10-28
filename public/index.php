@@ -31,7 +31,27 @@ if (file_exists(__DIR__.'/../storage/framework/maintenance.php')) {
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+$autoloader = require __DIR__.'/../vendor/autoload.php';
+
+$autoloader->unregister();
+
+spl_autoload_register(static function ($className) use ($autoloader){
+    $result = $autoloader->loadClass($className);
+
+    if ($result === true) {
+        if(! class_exists($className, false)) {
+            return false;
+        }
+
+        if(method_exists($className, '__constructStatic')) {
+            $className::__constructStatic();
+        }
+
+        return true;
+    }
+
+    return null;
+}, true, false);
 
 /*
 |--------------------------------------------------------------------------
