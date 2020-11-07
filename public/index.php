@@ -46,7 +46,7 @@ spl_autoload_register(static function ($className) use ($autoloader){
         if(method_exists($className, '__constructStatic')) {
             $className::__constructStatic();
         }
-
+``
         return true;
     }
 

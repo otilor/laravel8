@@ -1,12 +1,14 @@
 <?php
 
+use App\Classes\DesignPatterns\SingleResponsibility;
 use App\Http\Controllers\TestAutoloadController;
 use App\Jobs\ProcessPayment;
 use App\Jobs\SendDummyMail;
+use App\Models\User;
+use App\Notifications\SchoolFeesPaid;
 use Facades\EmailFacade;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-use PHPUnit\Util\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +50,8 @@ Route::get('test-static-fallback', function () {
 
 Route::get('dummy', function () {
     return "You said 'Hi'";
+});
+
+Route::get('notify', function () {
+    Notification::send(User::all(), new SchoolFeesPaid());
 });
